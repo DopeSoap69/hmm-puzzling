@@ -1,18 +1,62 @@
-[gd_scene load_steps=4 format=3 uid="uid://cyar0fwcopji"]
+[gd_scene load_steps=9 format=3 uid="uid://cyar0fwcopji"]
 
 [ext_resource type="Script" uid="uid://c4s2ylmlap30r" path="res://character_body_2d.gd" id="1_rkbax"]
-[ext_resource type="Texture2D" uid="uid://dyrhdxx122i" path="res://player/player.png" id="2_g1dw6"]
+[ext_resource type="Texture2D" uid="uid://eq7c6l3hdlvi" path="res://player/player_jump.png" id="2_g6k8r"]
+[ext_resource type="Texture2D" uid="uid://dy5fnvx0x5oq6" path="res://player/player_sitting.png" id="3_boad6"]
+[ext_resource type="Texture2D" uid="uid://hbaeeqxn5ytg" path="res://player/player_standing.png" id="4_rgyib"]
+[ext_resource type="Texture2D" uid="uid://i31b5fhoso21" path="res://player/player_walk1.png" id="5_hg6s5"]
+[ext_resource type="Texture2D" uid="uid://ceht8j3ecxo71" path="res://player/player_walk2.png" id="6_8t03j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yw30f"]
 size = Vector2(24, 20)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_2ieo8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_g6k8r")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_boad6")
+}],
+"loop": true,
+"name": &"sit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_rgyib")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.5,
+"texture": ExtResource("5_hg6s5")
+}, {
+"duration": 1.5,
+"texture": ExtResource("6_8t03j")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_rkbax")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -16)
-texture = ExtResource("2_g1dw6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -10)
 shape = SubResource("RectangleShape2D_yw30f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_2ieo8")
+animation = &"sit"
+frame_progress = 0.0118174
