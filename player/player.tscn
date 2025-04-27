@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cyar0fwcopji"]
+[gd_scene load_steps=10 format=3 uid="uid://cyar0fwcopji"]
 
 [ext_resource type="Script" uid="uid://c4s2ylmlap30r" path="res://character_body_2d.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://eq7c6l3hdlvi" path="res://player/player_jump.png" id="2_g6k8r"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://hbaeeqxn5ytg" path="res://player/player_standing.png" id="4_rgyib"]
 [ext_resource type="Texture2D" uid="uid://i31b5fhoso21" path="res://player/player_walk1.png" id="5_hg6s5"]
 [ext_resource type="Texture2D" uid="uid://ceht8j3ecxo71" path="res://player/player_walk2.png" id="6_8t03j"]
+[ext_resource type="AudioStream" uid="uid://dylt2uq2jic36" path="res://music/main.ogg" id="7_boad6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yw30f"]
 size = Vector2(24, 20)
@@ -60,3 +61,8 @@ position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_2ieo8")
 animation = &"sit"
 frame_progress = 0.0118174
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+scale = Vector2(200, 200)
+stream = ExtResource("7_boad6")
+autoplay = true
